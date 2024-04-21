@@ -1,0 +1,71 @@
+﻿@model Product
+
+@{
+    ViewBag.Title = ViewBag.Action + " Product";   
+
+}
+
+
+<h1 class="my-2">@ViewBag.Title</h1>
+
+<form asp-controller="Product" asp-action="AddEdit" method="post"
+      class="needs-validation" novalidate>
+
+    <div class="my-2 form-floating">
+        <input class="form-control" asp-for="ProductCode" placeholder="Product Code: " required />
+        <label class="form-label" asp-for="ProductCode" >Product Code:</label>
+        <div class="invalid-feedback">
+            Please Enter Product Code.
+        </div>
+    </div>
+
+    <div class="my-2 form-floating">
+        <input placeholder="Product Name:" asp-for="Name" class=" form-control" required />
+        <label class="form-label" asp-for="Name">Product Name:</label>
+        <span asp-validation-for="Name" class="invalid-feedback">Please Enter The Product Name.</span>
+    </div>
+
+    <div class="form-floating my-2">
+        <input placeholder="Product Price:" type="number" min="1" asp-for="YearlyPrice" class="form-control" />
+        <label class="form-label" asp-for="YearlyPrice">Product Yearly Price:</label>
+        <span asp-validation-for="YearlyPrice" class="invalid-feedback">Please enter the price.</span>
+    </div>
+
+    <div class="form-floating my-2">
+        <input placeholder="Release Date <br>" asp-for="ReleaseDate" class="form-control" />
+        <label asp-for="ReleaseDate">Release Date</label>
+    </div>
+
+    <input type="hidden" asp-for="ProductID" />
+
+    @*Save button*@
+    <button type="submit" class="mt-3 btn btn-primary">Save</button>
+
+    @*Cancel button*@
+    <a class="mt-3  btn btn-primary" asp-controller="Product" asp-action="List">
+        Cancel
+    </a>
+
+    
+
+</form>
+<script>
+    (() => {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+</script>
