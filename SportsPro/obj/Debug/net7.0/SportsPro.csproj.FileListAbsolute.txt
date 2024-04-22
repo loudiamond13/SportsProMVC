@@ -1201,3 +1201,4 @@ C:\Users\diamo\Desktop\LouProgramming\SportsProMVC\SportsPro\obj\Debug\net7.0\Sp
 C:\Users\diamo\Desktop\LouProgramming\SportsProMVC\SportsPro\bin\Debug\net7.0\X.PagedList.dll
 C:\Users\diamo\Desktop\LouProgramming\SportsProMVC\SportsPro\bin\Debug\net7.0\X.PagedList.Mvc.Core.dll
 C:\Users\diamo\Desktop\LouProgramming\SportsProMVC\SportsPro\obj\Debug\net7.0\SportsPro.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\diamo\Desktop\LouProgramming\SportsProMVC\SportsPro\obj\Debug\net7.0\SportsPro.sourcelink.json
