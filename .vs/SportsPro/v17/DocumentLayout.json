@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|c:\\users\\diamo\\desktop\\louprogramming\\sportspromvc\\sportspro\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|solutionrelative:sportspro\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|c:\\users\\diamo\\desktop\\louprogramming\\sportspromvc\\sportspro\\controllers\\incidentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|solutionrelative:sportspro\\controllers\\incidentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -22,8 +26,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\appsettings.json",
+              "RelativeDocumentMoniker": "SportsPro\\appsettings.json",
+              "ToolTip": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\appsettings.json",
+              "RelativeToolTip": "SportsPro\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-04-25T16:23:33.104Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
@@ -42,7 +59,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "RegistrationController.cs",
               "DocumentMoniker": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\Controllers\\RegistrationController.cs",
               "RelativeDocumentMoniker": "SportsPro\\Controllers\\RegistrationController.cs",
@@ -54,7 +71,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "SportsPro\\Controllers\\ProductController.cs",
@@ -66,13 +83,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "IncidentController.cs",
               "DocumentMoniker": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\Controllers\\IncidentController.cs",
               "RelativeDocumentMoniker": "SportsPro\\Controllers\\IncidentController.cs",
               "ToolTip": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\Controllers\\IncidentController.cs",
               "RelativeToolTip": "SportsPro\\Controllers\\IncidentController.cs",
-              "ViewState": "AQIAAGwBAAAAAAAAAAA9wHABAAA/AAAA",
+              "ViewState": "AQIAAG0BAAAAAAAAAAAQwHABAAA/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-25T07:09:35.618Z",
               "EditorCaption": ""
