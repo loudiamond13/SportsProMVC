@@ -5,32 +5,93 @@
 <h1>SportsPro Technical Support</h1>
 <p>Sports management software for the sports enthusiast.</p>
 
-<h2>Admin</h2>
-<div class="list-group">
-    <a asp-controller="Product" asp-action="List"
-       class="list-group-item text-primary">
-        Manage Products
-   </a>
-    <a asp-controller="Technician" asp-action="List"
-       class="list-group-item text-primary">
-       Manage Technicians
-   </a>
-    <a asp-controller="Customer" asp-action="List"
-       class="list-group-item text-primary">
-       Manage Customers
-   </a>
-    <a asp-controller="Incident" asp-action="List"
-       class="list-group-item text-primary">
-       Manage Incidents
-   </a>
-    <a asp-controller="Registration" asp-action="GetCustomer"
-       class="list-group-item text-primary">
-       Manage Registrations
-   </a>
-</div>
+@if (User.IsInRole(RoleConstants.Role_Admin))
+{
+    <h2>Admin</h2>
+    <div class="list-group">
+        <a asp-controller="Product" asp-action="List"
+           class="list-group-item text-primary">
+            Manage Products
+        </a>
+        <a asp-controller="Technician" asp-action="List"
+           class="list-group-item text-primary">
+            Manage Technicians
+        </a>
+        <a asp-controller="Customer" asp-action="List"
+           class="list-group-item text-primary">
+            Manage Customers
+        </a>
+        <a asp-controller="Incident" asp-action="List"
+           class="list-group-item text-primary">
+            Manage Incidents
+        </a>
+        <a asp-controller="Registration" asp-action="GetCustomer"
+           class="list-group-item text-primary">
+            Manage Registrations
+        </a>
+    </div>
 
-<h2>Technicians</h2>
-<div class="list-group">
-    <a asp-controller="Incident" asp-action="TechniciansSelectList"
-       class="list-group-item text-primary">Update Incident</a>
-</div>
+    <h2>Technicians</h2>
+    <div class="list-group">
+        <a asp-controller="Incident" asp-action="TechniciansSelectList"
+           class="list-group-item text-primary">Update Incident</a>
+    </div>
+}
+
+@model X.PagedList.IPagedList<Incident>
+
+@if (User.IsInRole(RoleConstants.Role_Technician))
+{
+    <h2 class="mt-3">Assigned Incidents</h2>
+
+    if (Model.Count() >= 1)
+    {
+        foreach (Incident i in Model)
+        {
+            <div class="card shadow mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">@i.Title</h5>
+                    <p class="card-text">Customer: @i.Customer?.FullName</p>
+                    <p class="card-text">Product: @i.Product?.Name</p>
+                    <p class="card-text">Date Opened: @i.DateOpened</p>
+                    @* show the date closed if it was closed *@
+                    @if (i.DateClosed != null)
+                    {
+                        <p class="card-text">Date Closed: @i.DateClosed</p>
+                    }
+
+
+                    <div class="d-flex justify-content-end">
+                        @* href="@Url.Action("UpdateIncident", "Incident", new { incidentID = i.IncidentID, technicianID = i.TechnicianID })" *@
+                        <a asp-action="UpdateIncident" asp-controller="Incident" asp-route-incidentID="@i.IncidentID" asp-route-technicianID="@i.TechnicianID"
+                           class="btn btn-primary mx-1">
+                            Edit
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+
+    }
+    else
+    {
+        <h4 class="my-4 text-center">You have no Incidents.</h4>
+    }
+
+    @* only show the pagination when there is more than 1 page *@
+    @if (Model.PageCount > 1)
+    {
+        <div class="">
+            <nav aria-label="Page navigation" class="d-flex justify-content-center">
+                <ul class="pagination">
+                    @for (var i = 1; i <= Model.PageCount; i++)
+                    {
+                        <li class="page-item @(Model.PageNumber == i ? "active" : "")">
+                            <a class="page-link" href="@Url.Action("Index", "Home", new {page = i, search = ViewBag.search})">@i</a>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        </div>
+    }
+}

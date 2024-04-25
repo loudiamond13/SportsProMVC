@@ -9,7 +9,5 @@ namespace SportsPro.DataAccess
 
         public TechnicianRepository(SportsProContext ctx) : base(ctx) => _context = ctx;
 
-      
-
     }
 }

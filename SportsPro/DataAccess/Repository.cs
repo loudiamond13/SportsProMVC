@@ -13,7 +13,7 @@ namespace SportsPro.DataAccess
         public Repository(SportsProContext ctx)
         {
             _dbContext = ctx;
-            this._dbSet = _dbContext.Set<TEntity>();
+            _dbSet = _dbContext.Set<TEntity>();
         }
 
         public void Add(TEntity entity)

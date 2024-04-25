@@ -6,7 +6,7 @@
 
 
 
-<h3 class="mt-2">Edit Incident/@ViewBag.Action</h3>
+<h3 class="mt-2">@ViewBag.Action</h3>
 <h5 class="mt-2">Technician Name: @Model.Technician.FullName</h5>
     
     <div class="form-group my-2">
@@ -60,11 +60,22 @@
         <button class="btn-primary btn" type="submit">Save</button>
 
         @* href="@Url.Action("UpdateIncidentsList", "Incident", new { technicianID = Model.TechnicianID })" *@
-        <a class="mx-1 btn btn-primary" asp-controller="Incident" 
-            asp-action="UpdateIncidentsList" 
-            asp-route-technicianID="@Model.TechnicianID">
-           Cancel
-       </a>
+        @if (User.IsInRole(RoleConstants.Role_Admin))
+        {
+            <a class="mx-1 btn btn-primary" asp-controller="Incident"
+               asp-action="UpdateIncidentsList"
+               asp-route-technicianID="@Model.TechnicianID">
+                Cancel
+            </a>
+        }
+        else
+        {
+            <a class="mx-1 btn btn-primary" asp-controller="Home"
+               asp-action="Index"
+               asp-route-technicianID="@Model.TechnicianID">
+                Cancel
+            </a>
+        }
     </div>
     
 </form>

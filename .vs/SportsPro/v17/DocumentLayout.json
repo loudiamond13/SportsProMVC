@@ -3,40 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|c:\\users\\diamo\\desktop\\louprogramming\\sportspromvc\\sportspro\\dataaccess\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|solutionrelative:sportspro\\dataaccess\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|c:\\users\\diamo\\desktop\\louprogramming\\sportspromvc\\sportspro\\controllers\\incidentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|solutionrelative:sportspro\\controllers\\incidentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|c:\\users\\diamo\\desktop\\louprogramming\\sportspromvc\\sportspro\\dataaccess\\interfaces\\icustomerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|solutionrelative:sportspro\\dataaccess\\interfaces\\icustomerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|c:\\users\\diamo\\desktop\\louprogramming\\sportspromvc\\sportspro\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|solutionrelative:sportspro\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|c:\\users\\diamo\\desktop\\louprogramming\\sportspromvc\\sportspro\\dataaccess\\customerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|solutionrelative:sportspro\\dataaccess\\customerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|c:\\users\\diamo\\desktop\\louprogramming\\sportspromvc\\sportspro\\dataaccess\\interfaces\\iincidentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|solutionrelative:sportspro\\dataaccess\\interfaces\\iincidentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|c:\\users\\diamo\\desktop\\louprogramming\\sportspromvc\\sportspro\\dataaccess\\interfaces\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|solutionrelative:sportspro\\dataaccess\\interfaces\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|c:\\users\\diamo\\desktop\\louprogramming\\sportspromvc\\sportspro\\dataaccess\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|solutionrelative:sportspro\\dataaccess\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|c:\\users\\diamo\\desktop\\louprogramming\\sportspromvc\\sportspro\\dataaccess\\sportsprocontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|solutionrelative:sportspro\\dataaccess\\sportsprocontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|c:\\users\\diamo\\desktop\\louprogramming\\sportspromvc\\sportspro\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|solutionrelative:sportspro\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|c:\\users\\diamo\\desktop\\louprogramming\\sportspromvc\\sportspro\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|solutionrelative:sportspro\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|c:\\users\\diamo\\desktop\\louprogramming\\sportspromvc\\sportspro\\controllers\\registrationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C1B1FA-B498-4CEF-9BBD-FFEDB02CB1C3}|SportsPro\\SportsPro.csproj|solutionrelative:sportspro\\controllers\\registrationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,112 +42,40 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IIncidentRepository.cs",
-              "DocumentMoniker": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\DataAccess\\Interfaces\\IIncidentRepository.cs",
-              "RelativeDocumentMoniker": "SportsPro\\DataAccess\\Interfaces\\IIncidentRepository.cs",
-              "ToolTip": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\DataAccess\\Interfaces\\IIncidentRepository.cs",
-              "RelativeToolTip": "SportsPro\\DataAccess\\Interfaces\\IIncidentRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-21T12:03:05.324Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\Program.cs",
-              "RelativeDocumentMoniker": "SportsPro\\Program.cs",
-              "ToolTip": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\Program.cs",
-              "RelativeToolTip": "SportsPro\\Program.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAwwB8AAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-21T12:03:17.597Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UnitOfWork.cs",
-              "DocumentMoniker": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\DataAccess\\UnitOfWork.cs",
-              "RelativeDocumentMoniker": "SportsPro\\DataAccess\\UnitOfWork.cs",
-              "ToolTip": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\DataAccess\\UnitOfWork.cs",
-              "RelativeToolTip": "SportsPro\\DataAccess\\UnitOfWork.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAzwC0AAABGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-21T11:53:36.109Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IUnitOfWork.cs",
-              "DocumentMoniker": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\DataAccess\\Interfaces\\IUnitOfWork.cs",
-              "RelativeDocumentMoniker": "SportsPro\\DataAccess\\Interfaces\\IUnitOfWork.cs",
-              "ToolTip": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\DataAccess\\Interfaces\\IUnitOfWork.cs",
-              "RelativeToolTip": "SportsPro\\DataAccess\\Interfaces\\IUnitOfWork.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-21T11:43:50.375Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Repository.cs",
-              "DocumentMoniker": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\DataAccess\\Repository.cs",
-              "RelativeDocumentMoniker": "SportsPro\\DataAccess\\Repository.cs",
-              "ToolTip": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\DataAccess\\Repository.cs",
-              "RelativeToolTip": "SportsPro\\DataAccess\\Repository.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAA2wBcAAAA7AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-21T11:34:59.976Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "CustomerRepository.cs",
-              "DocumentMoniker": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\DataAccess\\CustomerRepository.cs",
-              "RelativeDocumentMoniker": "SportsPro\\DataAccess\\CustomerRepository.cs",
-              "ToolTip": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\DataAccess\\CustomerRepository.cs",
-              "RelativeToolTip": "SportsPro\\DataAccess\\CustomerRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABPAAAA",
+              "Title": "RegistrationController.cs",
+              "DocumentMoniker": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\Controllers\\RegistrationController.cs",
+              "RelativeDocumentMoniker": "SportsPro\\Controllers\\RegistrationController.cs",
+              "ToolTip": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\Controllers\\RegistrationController.cs",
+              "RelativeToolTip": "SportsPro\\Controllers\\RegistrationController.cs",
+              "ViewState": "AQIAAKwAAAAAAAAAAAAxwLwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-20T13:36:44.96Z"
+              "WhenOpened": "2024-04-25T07:17:14.335Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ICustomerRepository.cs",
-              "DocumentMoniker": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\DataAccess\\Interfaces\\ICustomerRepository.cs",
-              "RelativeDocumentMoniker": "SportsPro\\DataAccess\\Interfaces\\ICustomerRepository.cs",
-              "ToolTip": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\DataAccess\\Interfaces\\ICustomerRepository.cs",
-              "RelativeToolTip": "SportsPro\\DataAccess\\Interfaces\\ICustomerRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAFAAAA",
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "SportsPro\\Controllers\\ProductController.cs",
+              "ToolTip": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "SportsPro\\Controllers\\ProductController.cs",
+              "ViewState": "AQIAAD0AAAAAAAAAAAAcwEIAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-20T13:35:07.418Z"
+              "WhenOpened": "2024-04-25T07:16:52.909Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "SportsProContext.cs",
-              "DocumentMoniker": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\DataAccess\\SportsProContext.cs",
-              "RelativeDocumentMoniker": "SportsPro\\DataAccess\\SportsProContext.cs",
-              "ToolTip": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\DataAccess\\SportsProContext.cs",
-              "RelativeToolTip": "SportsPro\\DataAccess\\SportsProContext.cs",
-              "ViewState": "AQIAAEcBAAAAAAAAAAA4wGABAAAUAAAA",
+              "DocumentIndex": 0,
+              "Title": "IncidentController.cs",
+              "DocumentMoniker": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\Controllers\\IncidentController.cs",
+              "RelativeDocumentMoniker": "SportsPro\\Controllers\\IncidentController.cs",
+              "ToolTip": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\Controllers\\IncidentController.cs",
+              "RelativeToolTip": "SportsPro\\Controllers\\IncidentController.cs",
+              "ViewState": "AQIAAGwBAAAAAAAAAAA9wHABAAA/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-20T13:21:11.197Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Customer.cs",
-              "DocumentMoniker": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\Models\\Customer.cs",
-              "RelativeDocumentMoniker": "SportsPro\\Models\\Customer.cs",
-              "ToolTip": "C:\\Users\\diamo\\Desktop\\LouProgramming\\SportsProMVC\\SportsPro\\Models\\Customer.cs",
-              "RelativeToolTip": "SportsPro\\Models\\Customer.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAADwvxEAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-20T12:54:02.181Z"
+              "WhenOpened": "2024-04-25T07:09:35.618Z",
+              "EditorCaption": ""
             }
           ]
         }

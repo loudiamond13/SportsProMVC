@@ -33,6 +33,7 @@
                         class="btn btn-primary mx-1">
                         Edit
                     </a>
+                   
                     <form method="post" asp-action="Delete" asp-controller="Incident" id="deleteIncident_@i.IncidentID" onsubmit="deleteIncident(event, @i.IncidentID)">
                         <input hidden asp-for="@i.IncidentID" name="incidentID" value="@i.IncidentID" />
                         <button class="btn btn-outline-danger" type="submit">Delete</button>
@@ -46,6 +47,24 @@ else
 {
     <h4 class="my-4 text-center">No Incidents...</h4>
 }
+
+@* only show the pagination when there is more than 1 page *@
+@if (Model.PageCount > 1)
+{
+    <div class="">
+        <nav aria-label="Page navigation" class="d-flex justify-content-center">
+            <ul class="pagination">
+                @for (var i = 1; i <= Model.PageCount; i++)
+                {
+                    <li class="page-item @(Model.PageNumber == i ? "active" : "")">
+                        <a class="page-link" href="@Url.Action("List", "Incident", new {page = i, search = ViewBag.search})">@i</a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    </div>
+}
+
 <div>
     <a class="btn btn-primary" asp-controller="Incident" asp-action="TechniciansSelectList">
         Switch Technician

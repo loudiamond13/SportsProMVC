@@ -1,4 +1,5 @@
 ﻿@model SportsPro.Models.ViewModels.RegistrationViewModel
+
 @{
     ViewData["title"] = "Registrations";
 }
@@ -25,9 +26,8 @@
                     <td>
                         <form asp-controller="Registration" asp-action="Delete" id="deleteReg_@reg.RegistrationID" onsubmit="deleteReg(event, @reg.RegistrationID)" method="post">
                             <input hidden name="registrationID" value="@reg.RegistrationID" />
-                            <input hidden name="productID" value="@reg.ProductID"/>
                             <input hidden name="customerID" value="@reg.CustomerID" />
-                            <button type="submit" class="btn btn-primary"  >Delete</button> 
+                            <button type="submit" class="btn btn-outline-danger"  >Delete</button> 
                         </form> 
                      </td> 
                  </tr>

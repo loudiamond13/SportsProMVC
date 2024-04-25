@@ -117,7 +117,7 @@ namespace SportsPro.Migrations
                         name: "FK_Incidents_Technicians_TechnicianID",
                         column: x => x.TechnicianID,
                         principalTable: "Technicians",
-                        principalColumn: "TechnicianID");
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -209,7 +209,7 @@ namespace SportsPro.Migrations
 
             migrationBuilder.InsertData(
                 table: "Technicians",
-                columns: new[] { "TechnicianID", "Email", "FirstName", "LastName", "Phone" },
+                columns: new[] { "Id", "Email", "FirstName", "LastName", "Phone" },
                 values: new object[,]
                 {
                     { 11, "alison@sportsprosoftware.com", "Alison", "Diaz", "800-555-0443" },
@@ -235,7 +235,7 @@ namespace SportsPro.Migrations
 
             migrationBuilder.InsertData(
                 table: "Incidents",
-                columns: new[] { "IncidentID", "CustomerID", "DateClosed", "DateOpened", "Description", "ProductID", "TechnicianID", "Title" },
+                columns: new[] { "IncidentID", "CustomerID", "DateClosed", "DateOpened", "Description", "ProductID", "Id", "Title" },
                 values: new object[,]
                 {
                     { 1, 1010, new DateTime(2020, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2020, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), "Media appears to be bad.", 1, 11, "Could not install" },
@@ -272,7 +272,7 @@ namespace SportsPro.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Incidents_TechnicianID",
                 table: "Incidents",
-                column: "TechnicianID");
+                column: "Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Registrations_ProductID",

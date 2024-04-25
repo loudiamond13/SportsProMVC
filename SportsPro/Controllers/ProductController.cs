@@ -1,12 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using SportsPro.DataAccess;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SportsPro.DataAccess.Interfaces;
 using SportsPro.Models;
-using System.Linq;
+using SportsPro.Utility;
 using X.PagedList;
 
 namespace SportsPro.Controllers
 {
+    [Authorize(Roles = RoleConstants.Role_Admin)]
     public class ProductController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -18,7 +19,7 @@ namespace SportsPro.Controllers
         }
 
 
-        [Route("/products")]
+        //product list
         [HttpGet]
         public async Task<IActionResult> List(string search, int? page)
         {
@@ -28,7 +29,7 @@ namespace SportsPro.Controllers
                 //default the page number to 1
                 var pageNumber = page ?? 1;
 
-                var products = _unitOfWork.Products.GetAll().OrderBy(prod => prod.Name).ToList();
+                List<Product> products = _unitOfWork.Products.GetAll().OrderBy(prod => prod.Name).ToList();
 
                 if (!string.IsNullOrEmpty(search))
                 {
@@ -80,7 +81,7 @@ namespace SportsPro.Controllers
             catch
             {
                 TempData["errorMessage"] = "An error occurred while retrieving product details.";
-                return RedirectToAction("List"); // Redirect to a suitable action, like the product list page
+                return RedirectToAction("List", "Product");
             }
         }
 
@@ -97,7 +98,7 @@ namespace SportsPro.Controllers
                         _unitOfWork.Products.Add(product);
 
                         // Add custom message when a product is added.
-                        TempData["successMessage"] = $"Successfully Added  \"{product.Name}\" to Products.";
+                        TempData["successMessage"] = "Product added successfully.";
                     }
                     else
                     {
@@ -118,7 +119,7 @@ namespace SportsPro.Controllers
                         }
 
                         // Add custom message when a product is updated.
-                        TempData["successMessage"] = " '" + product.Name + "'" + " Has Been updated.";
+                        TempData["successMessage"] = $"Product updated successfully.";
                     }
 
                     _unitOfWork.Save();
@@ -132,28 +133,11 @@ namespace SportsPro.Controllers
             }
             else 
             {
-                ViewBag.Action = product.ProductID == 0 ? "Add" : "Edit";
+                ViewBag.Action = product.ProductID == 0 ? "Add" : "AddEdit";
                 return View("AddEdit",product);
             }
         }
 
-        //[Route(("/products/{action?}/id/{id?}"))]
-        //[HttpGet]
-        //public IActionResult Delete(int id) 
-        //{
-        //    try
-        //    {
-        //        var product = _unitOfWork.Products.Find(product => product.ProductID == id);
-
-        //        ViewBag.asd = product.Name;
-
-        //        return View("Delete", product);
-        //    }
-        //    catch (Exception ex){
-        //        TempData["errorMessage"] = "An error occurred: " + ex.Message;
-        //        return RedirectToAction("List", "Product");
-        //    }
-        //}
 
         [Route(("/products/{action?}/id/{id?}"))]
         [HttpPost]
@@ -164,7 +148,7 @@ namespace SportsPro.Controllers
                 var product = _unitOfWork.Products.Find(prod => prod.ProductID == productID);
 
                 // Add custom message 
-                TempData["successMessage"] = $"Product with ID: {product.ProductID} has been deleted.";
+                TempData["successMessage"] = $"Product with Id: {product.ProductID} has been deleted.";
 
 
                 _unitOfWork.Products.Delete(product);

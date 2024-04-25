@@ -28,10 +28,10 @@ namespace SportsPro.DataAccess
 
 
 
-        //    return _context.Incidents.Include(i => i.Technician)
+        //    return _context.Incidents.Include(i => i.SportsProUser)
         //                                        .Include(i => i.Product)
         //                                        .Include(i => i.Customer)
-        //                                    .Where(i => i.TechnicianID == id && i.DateClosed == null)
+        //                                    .Where(i => i.Id == id && i.DateClosed == null)
         //                                    .ToList();
         //}
 

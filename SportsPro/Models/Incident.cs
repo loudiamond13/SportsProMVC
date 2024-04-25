@@ -6,31 +6,32 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SportsPro.Models
 {
-    public class Incident 
+    public class Incident
     {
         public int IncidentID { get; set; }
 
 
+        [ForeignKey("Customer")] // name of the navigation property
         [Required]
         public int CustomerID { get; set; }     // foreign key property
         [ValidateNever]
         public Customer? Customer { get; set; }  // navigation property
 
 
-        //[ForeignKey("ProductID")]
+        [ForeignKey("Product")] // name of the navigation property
         [Required(ErrorMessage = "Product is required")]
         public int ProductID { get; set; }     // foreign key property
         [ValidateNever]
-        public Product?  Product { get; set; }   // navigation property
+        public Product? Product { get; set; }   // navigation property
 
 
-        public int? TechnicianID { get; set; }     // foreign key property - nullable
-        [ValidateNever]
-        public Technician? Technician { get; set; }   // navigation property
+        [ForeignKey("Technician")] // name of the navigation property
+        public string? TechnicianID { get; set; } // foreign key property
+        public SportsProUser? Technician { get; set; }   // navigation property
 
 
 
-        [Required(ErrorMessage ="Title is required")]
+        [Required(ErrorMessage = "Title is required")]
         public string Title { get; set; } = string.Empty;
 
         [Required]

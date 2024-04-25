@@ -9,7 +9,7 @@
 
 <form name="UpdateIncidentForm" class="needs-validation"  asp-controller="Incident" asp-action="UpdateIncidentsList" method="get" novalidate>
     <div class="form-group w-50">
-        <select class="form-control select2" asp-for="TechnicianID" asp-items="@(new SelectList(ViewBag.Technicians , "TechnicianID", "FullName"))" required>
+        <select class="form-control select2" asp-for="TechnicianID" asp-items="@(new SelectList(ViewBag.Technicians , "Id", "FullName"))" required>
             <option value="">Select Technician...</option>
         </select>
         <span class="invalid-feedback" asp-validation-for="@Model.TechnicianID"> Please Select A Technician</span>

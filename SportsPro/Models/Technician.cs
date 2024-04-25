@@ -4,7 +4,7 @@ namespace SportsPro.Models
 {
     public class Technician
     {
-
+        [Key]
         public int TechnicianID { get; set; } // primary Key
 
         [Required(ErrorMessage = "First name is required.")]

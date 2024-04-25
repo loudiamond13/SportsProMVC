@@ -416,7 +416,7 @@ namespace SportsPro.Migrations
                     b.Property<int>("ProductID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("TechnicianID")
+                    b.Property<int?>("Id")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
@@ -429,7 +429,7 @@ namespace SportsPro.Migrations
 
                     b.HasIndex("ProductID");
 
-                    b.HasIndex("TechnicianID");
+                    b.HasIndex("Id");
 
                     b.ToTable("Incidents");
 
@@ -609,13 +609,13 @@ namespace SportsPro.Migrations
                         });
                 });
 
-            modelBuilder.Entity("SportsPro.Models.Technician", b =>
+            modelBuilder.Entity("SportsPro.Models.SportsProUser", b =>
                 {
-                    b.Property<int>("TechnicianID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TechnicianID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -636,7 +636,7 @@ namespace SportsPro.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.HasKey("TechnicianID");
+                    b.HasKey("Id");
 
                     b.ToTable("Technicians");
 
@@ -708,15 +708,15 @@ namespace SportsPro.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SportsPro.Models.Technician", "Technician")
+                    b.HasOne("SportsPro.Models.SportsProUser", "SportsProUser")
                         .WithMany()
-                        .HasForeignKey("TechnicianID");
+                        .HasForeignKey("Id");
 
                     b.Navigation("Customer");
 
                     b.Navigation("Product");
 
-                    b.Navigation("Technician");
+                    b.Navigation("SportsProUser");
                 });
 
             modelBuilder.Entity("SportsPro.Models.Registration", b =>

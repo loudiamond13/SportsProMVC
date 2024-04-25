@@ -1,166 +1,266 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using SportsPro.DataAccess.Interfaces;
 using SportsPro.Models;
 using SportsPro.Models.Validations;
+using SportsPro.Utility;
 using X.PagedList;
 
 namespace SportsPro.Controllers
 {
+    [Authorize(Roles = RoleConstants.Role_Admin)]
     public class TechnicianController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly UserManager<IdentityUser> _userManager;
 
         // constructor
-        public TechnicianController(IUnitOfWork ctx)
+        public TechnicianController(IUnitOfWork ctx, UserManager<IdentityUser> userManager)
         { 
-            
+            _userManager = userManager;
+         
             _unitOfWork = ctx;
         }
 
-        [Route("/technicians")]
+        //tech list
         [HttpGet]
         public async Task<IActionResult> List(string search, int? page)
         {
-            //set the pageSize
-            var pageSize = 5;
-            //default the page number to 1 if there is no pagenumber passed in
-            var pageNumber = page ?? 1;
-
-            //get all techs from the db
-            var technicians = _unitOfWork.Technicians.GetAll();
-
-            if (!string.IsNullOrEmpty(search))
+            try 
             {
-                technicians = technicians.Where(tech => tech.FirstName.ToLower().Contains(search.ToLower()) ||
-                                                tech.LastName.ToLower().Contains(search.ToLower()) ||
-                                                tech.Email.ToLower().Contains(search.ToLower()) || // search for email as well
-                                                tech.Phone.Contains(search))            // search for the phone as well
-                                                .OrderBy(tech => tech.FirstName);
+                //set the pageSize
+                var pageSize = 5;
+                //default the page number to 1 if there is no pagenumber passed in
+                var pageNumber = page ?? 1;
+
+                //get all users from the db
+                var sportsProUsers = _unitOfWork.SportsProUsers.GetAll();
+
+                //get the role for each user
+                foreach (var user in sportsProUsers)
+                {
+                    var roles = await _userManager.GetRolesAsync(user);
+                    user.Role = roles.FirstOrDefault();
+                    //do not include password
+                    user.PasswordHash = null;
+                }
+
+                //filter users where Role == "Technician"
+                var technicians = sportsProUsers.Where(user => user.Role == RoleConstants.Role_Technician);
+
+                //check if there is techs found
+                if (technicians == null)
+                {
+                    //return to homepage if there is no techs found.
+                    TempData["errorMessage"] = "Technicians not found.";
+                    return RedirectToAction("Index", "Home");
+                }
+   
+                //filter technicians if search is not null
+                if (!string.IsNullOrEmpty(search))
+                {
+                    technicians = technicians.Where(tech => tech.FirstName.ToLower().Contains(search.ToLower()) ||
+                                                    tech.LastName.ToLower().Contains(search.ToLower()) ||
+                                                    tech.Email.ToLower().Contains(search.ToLower()) || // search for email as well
+                                                    tech.PhoneNumber.Contains(search))            // search for the phone as well
+                                                    .OrderBy(tech => tech.FirstName);
+                }
+             
+              
+                //paginates the technicians
+                var pagedTechnicians = await technicians.ToPagedListAsync(pageNumber, pageSize);
+
+                ViewBag.search = search;
+
+                return View("List", pagedTechnicians);
             }
-
-
-            var pagedTechnicians =  await technicians.ToPagedListAsync(pageNumber, pageSize);
-
-            ViewBag.search = search;
-
-            return View("List", pagedTechnicians);
+            catch (Exception ex) 
+            {
+                TempData["errorMessage"] = $"Error occurred: {ex.Message}";
+                return RedirectToAction("Index", "Home");
+            }
         }
 
-        [HttpGet]
-        public IActionResult Add()
-        {
-            ViewBag.Action = "Add";
-
-            //return the AddEdit View With a new/empty techs context
-            return View("AddEdit", new Technician());
-        }
 
 
         
         [HttpGet]
-        [Route("/technicians/edit/id/{id?}")]
-        public IActionResult Edit(int id)
+        [Route("/technician/edit/id/{id?}")]
+        public async Task<IActionResult> Edit(string id)
         {
             ViewBag.Action = "Edit";
 
             //find the passed in tech id
-            var technician = _unitOfWork.Technicians.Find(tech => tech.TechnicianID == id);
+            var user = await _userManager.FindByIdAsync(id);
+            
+            if (user == null)
+            {
+                TempData["errorMessage"] = "Technician not found.";
+                return RedirectToAction("List", "Technician");
+            }
 
-            //  
-            return View("AddEdit", technician);
+            return View("AddEdit", user);
         }
 
         [HttpPost]
-        public IActionResult AddEdit(Technician technician)
+        public async Task<IActionResult> AddEdit(SportsProUser user)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    if (technician.TechnicianID == 0)
+                    //find the technician to be updated
+                    var existingTech = _unitOfWork.SportsProUsers.Find(user => user.Id == user.Id);
+                    
+
+
+                    //check if technician is found from the db
+                    if (existingTech == null)
                     {
-                        string message = Validate.CheckIfTechnicianEmailExists(_unitOfWork, technician.Email.Trim());
+                        TempData["errorMessage"] = $"Technician not found.";
+                        return RedirectToAction("List", "Technician");
+                    }
+
+                  
+
+                    //check if tech email is new or not matched to the existing technician/user email
+                    if (user.Email != existingTech.Email)
+                    {
+                        //check the new email
+                        string message = Validate.CheckIfTechnicianEmailExists(_unitOfWork, user.Email.Trim());
+                        //if there is messsage, show the error message by adding it to the model error
                         if (!string.IsNullOrEmpty(message))
                         {
-                            ModelState.AddModelError(nameof(Technician.Email), message); // add model error if email is already in use
-                            return View("AddEdit", technician);
+                            ModelState.AddModelError(nameof(SportsProUser.Email), message); // add model error if email is already in use
+                            ViewBag.Countries = _unitOfWork.Countries.GetAll().ToList();
+                            return View("AddEdit", user);
                         }
-                        else 
-                        {
-                            _unitOfWork.Technicians.Add(technician);
-                            TempData["successMessage"] = "Technician added successfully.";
-                        }
+
                     }
+
+                    //update the following fields if all validation are ok/valid
+                    existingTech.FirstName = user.FirstName;
+                    existingTech.LastName = user.LastName;
+                    existingTech.UserName = user.Email;
+                    existingTech.Email = user.Email;
+                    existingTech.PhoneNumber = user.PhoneNumber;
+
+                    var result = await _userManager.UpdateAsync(existingTech); // update the user
+
+                    //check the result if it succeeded
+                    if (result.Succeeded)
+                    {
+                        TempData["successMessage"] = "Technician updated successfully";
+                        //save the db
+                      //  _unitOfWork.Save();
+                        return RedirectToAction("List", "Technician");
+                    }
+                    // else if it was unsuccessful, show the error to the user
                     else
                     {
-                        //find the technician to be updated
-                        var existingTech = _unitOfWork.Technicians.Find(tech => tech.TechnicianID == technician.TechnicianID);
-
-
-                        //check if technician is found from the db
-                        if (existingTech != null)
+                        foreach (var error in result.Errors)
                         {
-                            //check if tech email is new or not matched to the existing technician email
-                            if (technician.Email != existingTech.Email)
-                            {
-                                //check the new email
-                                string message = Validate.CheckIfTechnicianEmailExists(_unitOfWork, technician.Email.Trim());
-                                if (!string.IsNullOrEmpty(message))
-                                {
-                                    ModelState.AddModelError(nameof(Customer.Email), message); // add model error if email is already in use
-                                    ViewBag.Countries = _unitOfWork.Countries.GetAll().ToList();
-                                    return View("AddEdit", technician);
-                                }
-                            }
-                            
-
-                            //update the following fields if all validation are ok/valid
-                            existingTech.FirstName = technician.FirstName;
-                            existingTech.LastName = technician.LastName;
-                            existingTech.Email = technician.Email;
-                            existingTech.Phone = technician.Phone;
-
-                            TempData["successMessage"] = "Technician updated successfully";
+                            TempData["errorMessage"] = $"{error.Description}";
                         }
-                        else 
-                        {
-                            TempData["errorMessage"] = $"Technician not found.";
-                            return RedirectToAction("List", "Technician");
-                        }
+                        return View("AddEdit", user);
                     }
-
-                    _unitOfWork.Save();
                 }
                 catch (Exception ex) 
                 {
                     TempData["errorMessage"] = $"Error occurred: {ex.Message}"; 
+                    return View("AddEdit", user);
                 }
-                return RedirectToAction("List", "Technician");
             }
             else
             {
-                ViewBag.Action = technician.TechnicianID == 0 ? "Add" : "Edit";
-                return View("AddEdit", technician);
+                ViewBag.Action = "AddEdit";
+                return View("AddEdit", user);
             }
         }
 
 
+        //lock/unlock action
+     
+        public async Task<IActionResult> UnlockLock(string id)
+        {
+            try
+            {
+                var user = await _userManager.FindByIdAsync(id);
+                if (user == null)
+                {
+                    TempData["errorMessage"] = "User to unlock/lock not found.";
+                    return View("List");
+                }
+
+               
+
+                //check if user is currently locked
+                if (user.LockoutEnd != null && user.LockoutEnd > DateTime.Now)
+                {
+                    //unlock the user
+                    //set the lockout end to now
+                    user.LockoutEnd = DateTime.Now;
+                    TempData["successMessage"] = "User successfully unlocked.";
+                }
+                //else lock the user
+                else 
+                {
+                    user.LockoutEnd = DateTime.Now.AddYears(100);
+                    TempData["successMessage"] = "User successfully locked.";
+                }
+
+                var result = await _userManager.UpdateAsync(user);
+
+                //check if user is updated successfully
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("List", "Technician");
+                }
+                else 
+                {
+                    TempData["errorMessage"] = "Error on locking/locking user.";
+                    return RedirectToAction("List", "Technician");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                TempData["errorMessage"] = $"Error occurred: {ex.Message}";
+                return View("List");
+            }
+
+        }
+
+
         [HttpPost]
-        public IActionResult Delete(int technicianID)
+        public async Task<IActionResult> Delete(string technicianID)
         {
             try 
             {
                 //get the technician from the db using the technicianID that is passed in
-                Technician technician = _unitOfWork.Technicians.Find(tech => tech.TechnicianID == technicianID); 
+                var userToDelete = await _userManager.FindByIdAsync(technicianID);
 
                 //check if technician exist
-                if (technician == null) {
+                if (userToDelete == null) {
                     TempData["errorMessage"] = "Technician not found.";
                     return RedirectToAction("List", "Technician");
                 }
 
-                _unitOfWork.Technicians.Delete(technician); // delete the technician
-                _unitOfWork.Save(); //save the db
+                // Delete the user
+                var result = await _userManager.DeleteAsync(userToDelete);
+
+                if (result.Succeeded)
+                {
+                    TempData["successMessage"] = "User deleted successfully";
+                }
+                else
+                {
+                    TempData["errorMessage"] = "Failed to delete user";
+                }
+
+                // _unitOfWork.Save(); //save the db
+                return RedirectToAction("List", "Technician");
                 
             }
             catch (Exception ex) 

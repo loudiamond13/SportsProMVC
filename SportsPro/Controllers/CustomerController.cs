@@ -1,12 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using SportsPro.DataAccess;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SportsPro.DataAccess.Interfaces;
 using SportsPro.Models;
 using SportsPro.Models.Validations;
+using SportsPro.Utility;
 using X.PagedList;
 
 namespace SportsPro.Controllers
 {
+    [Authorize(Roles = RoleConstants.Role_Admin)]
     public class CustomerController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -17,7 +19,8 @@ namespace SportsPro.Controllers
             _unitOfWork = ctx;
         }
 
-        [Route("/customers")]
+        
+        //customer list
         [HttpGet]
         public async Task<IActionResult> List(string search, int? page)
         {
@@ -77,7 +80,7 @@ namespace SportsPro.Controllers
             try 
             {
                 ViewBag.Countries = _unitOfWork.Countries.GetAll().ToList();
-                ViewBag.Action = "Edit";
+                ViewBag.Action = "AddEdit";
 
                 //find and get the customer from db
                 var customer = _unitOfWork.Customers.Find(customer => customer.CustomerID == id);
@@ -182,7 +185,7 @@ namespace SportsPro.Controllers
             else 
             {
                 TempData["errorMessage"] = "Please input the required fields.";
-                ViewBag.Action = customer.CustomerID == 0 ? "Add" : "Edit";
+                ViewBag.Action = customer.CustomerID == 0 ? "Add" : "AddEdit";
                 ViewBag.Countries = _unitOfWork.Countries.GetAll().ToList();
                 return View("AddEdit", customer);
             }
@@ -190,7 +193,7 @@ namespace SportsPro.Controllers
         }
 
        
-        //delete action
+        //delete action/request
         [HttpPost]
         public IActionResult Delete(int customerID) 
         {

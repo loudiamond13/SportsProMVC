@@ -4,7 +4,7 @@
 }
 
 <h1>Get Customer</h1>
-<form asp-action="List" method="post">
+<form asp-action="List" method="post" asp-controller="Registration">
     <select class="form-control select2 w-50" asp-for="CustomerID"
         asp-items="@(new SelectList(ViewBag.Customers, "CustomerID", "FullName", Model.CustomerID.ToString()))">
         <option value="0">Select A Customer...</option>
@@ -17,7 +17,7 @@
 
 @section Scripts{
     <script>
-        //make the jquery select2 function/work
+        //makes the jquery select2 function/work
         $(document).ready(function () {
             $('.select2').select2();
         });

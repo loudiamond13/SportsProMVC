@@ -9,10 +9,6 @@ namespace SportsPro.Models
     {
         public int CustomerID { get; set; }
 
-
-
-
-
         [Required(ErrorMessage = "Please Enter A First Name.")]
         [Display(Name = "First Name")]
         [StringLength(50)]

@@ -75,7 +75,7 @@
                     <label asp-for="TechnicianID">Technician</label>
                     <select asp-for="TechnicianID" class="form-control select2"
                             asp-items="@(new SelectList(ViewBag.Technicians,
-                                                        "TechnicianID", "FullName", Model.TechnicianID.ToString()))">
+                                                        "Id", "FullName", Model.TechnicianID))">
                         <option value="">Assign A Technician...</option>
                     </select>
                 </div>

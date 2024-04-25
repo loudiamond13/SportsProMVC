@@ -4,7 +4,7 @@
 
 @model IncidentViewModel
 @{
-     ViewData["title"] = "Get Technician";
+     ViewData["title"] = "Get SportsProUser";
 }
 
 <h1>Technician</h1>
@@ -15,7 +15,7 @@
 
         <select  class="form-control"  
                 asp-items="@(
-                new SelectList(Model.Technicians, "TechnicianID", "Name", Model))" required>
+                new SelectList(Model.Technicians, "Id", "Name", Model))" required>
 
                 <option value="">Select A Customer...</option>
               
